@@ -4,10 +4,12 @@ const { Prohairesis } = require('prohairesis');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 
+dotenv.config();
+
 const app = express();
 const port = process.env.PORT || 8080;
 
-const mySQLString='mysql://bb6b67e1c186bc:87ccd771@us-cdbr-east-06.cleardb.net/heroku_ecea74e93b1f819?reconnect=true';
+const mySQLString=process.env.CLEARDB_DATABASE_URL;
 
 const database = new Prohairesis(mySQLString);
 
